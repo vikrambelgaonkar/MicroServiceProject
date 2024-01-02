@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usersmicroservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: usersmicroservice
+  template:
+    metadata:
+      labels:
+        app: usersmicroservice
+    spec:
+      containers:
+      - name: microserviceproject
+        image: vikrambelgaonkar/usersmicroservice:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80

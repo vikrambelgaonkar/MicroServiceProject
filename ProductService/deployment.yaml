@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: producstmicroservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: producstmicroservice
+  template:
+    metadata:
+      labels:
+        app: producstmicroservice
+    spec:
+      containers:
+      - name: microserviceproject
+        image: vikrambelgaonkar/producstmicroservice:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80

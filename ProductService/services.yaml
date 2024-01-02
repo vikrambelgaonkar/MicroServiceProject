@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: productmicroservice
+  labels:
+    app: productmicroservice
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 32000
+    protocol: TCP
+  selector:
+    app: productmicroservice
